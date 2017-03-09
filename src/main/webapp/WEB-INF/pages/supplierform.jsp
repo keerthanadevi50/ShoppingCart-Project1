@@ -12,7 +12,7 @@
 			
 			<h3 align="center" style="color: #27A4F7">Add a new supplier</h3>
 
-			<form class="form-horizontal"  method="post" action="newSupplier"  role="form" name="supplier">
+			<form class="form-horizontal"  method="post" action="newSupplier">
 				<div style="color: #27A4F7" class="form-group">
 					<label for="text">Name :</label> 
 					<input  class="form-control" placeholder="Enter the name of the supplier" type="text"  id="suppliername" name="name" >
@@ -36,6 +36,8 @@
 				<button style="background-color: #27A4F7;color:white" type="submit" value="submit" class="btn btn-default">Upload</button>
 				
 				</form>
+				</div>
+				</div>
 
 </body>
 

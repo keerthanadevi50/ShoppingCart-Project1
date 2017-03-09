@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.shoppingCart.model.Users;
 @Repository
-
 public class UsersDaoImpl implements UsersDao {
 	@Autowired
 	private SessionFactory sessionFactory;

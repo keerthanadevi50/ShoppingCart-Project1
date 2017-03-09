@@ -2,33 +2,40 @@ package com.shoppingCart.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.shoppingCart.dao.SupplierDao;
 import com.shoppingCart.model.Supplier;
 
 @Service
 public class SupplierServiceImpl implements SupplierService {
+	@Autowired
+	private SupplierDao  supplierDao;
 
-	@Override
+	@Transactional
 	public List<Supplier> list() {
 		// TODO Auto-generated method stub
-		return null;
+		return supplierDao.list();
 	}
 
-	@Override
+	@Transactional
 	public Supplier get(String id) {
 		// TODO Auto-generated method stub
-		return null;
+		return supplierDao.get(id);
 	}
 
-	@Override
-	public void saveOrUpdate(Supplier category) {
+	@Transactional
+	public void saveOrUpdate(Supplier supplier) {
+		supplierDao.saveOrUpdate(supplier);
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	@Transactional
 	public void delete(String id) {
+		 supplierDao.delete(id);
 		// TODO Auto-generated method stub
 		
 	}

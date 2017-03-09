@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@include file="/WEB-INF/pages/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +13,10 @@
 <div class="container-wrapper">
 <div class="container">
 <form action="newUsers" class="form-horizontal"  method="post"   role="form" name="register" >
+    <div class="span9 margin-top">
+                   <div class="span9 center margin-bottom"> 
+					<h1>Registration Form</h1>
+					</div>
 
 <div class="form-group">
 <label for="firstname">FIRST NAME</label>

@@ -13,14 +13,15 @@ import org.springframework.stereotype.Component;
 	public class Supplier {
 		
 	@Id
-		
-		@GeneratedValue
+    @GeneratedValue
 		private String id;
 		
 		private String name;
 		private long phoneNo;
 		private String emailId;
 		private String address;
+		
+		
 		public String getId() {
 			return id;
 		}

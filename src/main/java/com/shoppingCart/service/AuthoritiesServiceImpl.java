@@ -11,6 +11,8 @@ import com.shoppingCart.model.Authorities;
 public class AuthoritiesServiceImpl implements AuthoritiesService {
 	@Autowired
 	private AuthoritiesDao authoritiesDao;
+	
+	
 	public Authorities get(String username) {
 		return authoritiesDao.get(username)  ;
 	}
@@ -22,7 +24,14 @@ public class AuthoritiesServiceImpl implements AuthoritiesService {
 	public void saveOrUpdate(Authorities authorities) {
 		 authoritiesDao.saveOrUpdate(authorities);
 	}
-		
+
+	@Override
+	public Authorities getRole(String username) {
+		// TODO Auto-generated method stub
+		return authoritiesDao.getRole(username);
+	}
+
+	
 	
 
 }

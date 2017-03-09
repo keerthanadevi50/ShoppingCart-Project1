@@ -1,13 +1,26 @@
 package com.shoppingCart.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
 @Entity
+@Table(name="users")
+@Component
 public class Users {
+		public Authorities getAuthorities() {
+		return authorities;
+	}
+	public void setAuthorities(Authorities authorities) {
+		this.authorities = authorities;
+	}
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
@@ -17,13 +30,23 @@ public class Users {
     private String lastname;
     private String email;
     private String phonenumber;
+	private String password;
     private String apartmentNumber;
     private String streetName;
     private String city;
+    private String State;
     private String country;
     private String zipcode;
+    private boolean enabled;
+ 
     
-    public String getFirstname() {
+    
+    @OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id")
+	private Authorities  authorities;
+    
+    
+ String getFirstname() {
 		return firstname;
 	}
 	public void setFirstname(String firstname) {
@@ -77,16 +100,10 @@ public class Users {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	public Customer getCustomer() {
-		return customer;
-	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
 	
-	private String password;
-	@OneToOne(mappedBy="users")
-	private Customer customer;
+	
+
+	
 	public int getId() {
 		return id;
 	}
@@ -105,6 +122,19 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	public String getState() {
+		return State;
+	}
+	public void setState(String state) {
+		State = state;
+	}
+	
 	
 	}
 

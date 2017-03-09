@@ -15,10 +15,9 @@ public class AuthoritiesDaoImpl implements AuthoritiesDao {
 	private SessionFactory sessionFactory;
 
 	@Transactional
-	public Authorities get(String username) {
+	public Authorities getRole(String username) {
 		// TODO Auto-generated method stub
-		
-		String hql = "from UserRole where username ='"+ username +"'";
+		String hql = "from Authorities where username ='"+ username +"'";
 		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Authorities> listUser = (List<Authorities>) query.list();
@@ -47,6 +46,21 @@ return listAuthorities;
 		
 	}
 
+	@Transactional
+	public Authorities get(String username) {
+		String hql = "from Authorities where username ='"+ username +"'";
+		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Authorities> listUser = (List<Authorities>) query.list();
+		
+		if (listUser != null && !listUser.isEmpty()){
+			return listUser.get(0);
+		}
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 	
 
 }

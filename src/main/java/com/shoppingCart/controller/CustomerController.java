@@ -2,16 +2,21 @@ package com.shoppingCart.controller;
 
 import java.security.Principal;
 
-import javax.management.relation.Role;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shoppingCart.model.Authorities;
+import com.shoppingCart.model.BillingAddress;
+import com.shoppingCart.model.ShippingAddress;
 import com.shoppingCart.model.Users;
 import com.shoppingCart.service.AuthoritiesService;
+import com.shoppingCart.service.BillingAddressService;
+import com.shoppingCart.service.ShippingAddressService;
 import com.shoppingCart.service.UsersService;
 
 @Controller
@@ -19,8 +24,23 @@ public class CustomerController {
 
 	@Autowired
 	private UsersService usersService;
+
+	@Autowired
+	private Authorities authorities;
+
 	@Autowired
 	private AuthoritiesService authoritiesService;
+
+	@Autowired
+	private ShippingAddress shippingAddress;
+
+	@Autowired
+	private ShippingAddressService shippingAddressService;
+
+	@Autowired
+	private BillingAddress billingAddress;
+	@Autowired
+	private BillingAddressService billingAddressService;
 
 	public CustomerController() {
 		System.out.println("INSTANTIATING CUSTOMERCONTROLLER");
@@ -33,35 +53,52 @@ public class CustomerController {
 	}
 
 	@RequestMapping("/newUsers")
-	public String newUsers(@ModelAttribute Users users) {
-		usersService.saveUsers(users);
-		Authorities authorities = new Authorities();
+	public String newUsers(@ModelAttribute Users users, @ModelAttribute ShippingAddress shippingAddress, @ModelAttribute BillingAddress billingAddress) {
+		users.setEnabled(true);
+		
 		authorities.setRole("ROLE_USER");
 		authorities.setUsername(users.getUsername());
-		authorities.setEnabled(true);
+		
+		
+		
+		
+		users.setAuthorities(authorities);
+		authorities.setUsers(users);
+		
+		
+		
+		
+		usersService.saveUsers(users);
 		authoritiesService.saveOrUpdate(authorities);
+		
+		shippingAddress.setId(users.getId());
+		billingAddress.setId(users.getId());
+		
+		 shippingAddressService.saveOrUpdate(shippingAddress);
+		billingAddressService.saveOrUpdate(billingAddress);
+		
 		
 		return "login";
 	}
+
 	@RequestMapping(value = "/afterlogin")
-	public String login(Principal p ) {
-	  
-	 String message=null;
-	 Authorities authorities=authoritiesService.getRole(p.getusername());
-	 System.out.println(role.getRole());
-	 if(role.getRole().equals("ROLE_USER")){
-		 message="redirect:/useraccount";
-	 }
-	 else
-	 {
-		 message="redirect:/admin";
-	 }
+	public String afterLogin( Principal p,Model model, @RequestParam(value = "error" , required=false) String error, @RequestParam(value = "logout", required=false)String logout) {
+		String username = p.getName();
+		Authorities authorities=authoritiesService.get(username);
+		String role =authorities.getRole();
+		
+		if(role.equals("ROLE_USER")){
+			model.addAttribute("loginUser",true);
+			return "UserLogin";
+		}
+		else if(role.equals("ROLE_ADMIN"))
+		{
+			model.addAttribute("loginAdmin", true);
+			return "AdminLogin";
+		}
+		else
+		{
+		return "login";	  
 	 
-	
-	 
-	System.out.println("inside security");
-	  return message;
-
 	}
-
-}
+}}

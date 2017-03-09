@@ -26,5 +26,6 @@ public class TestAll {
 		cat.setCategoryDetails("asdad");
 		categoryService.update(cat);
 		
+		
 }
 }

@@ -2,6 +2,7 @@ package com.shoppingCart.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -9,14 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.shoppingCart.model.Supplier;
 
-@Repository("SupplierDao")
+@Repository
 	public class SupplierDaoImpl implements SupplierDao {
 
 		@Autowired
 		private SessionFactory sessionFactory;
-
 		
-
 		@SuppressWarnings("unchecked")
 		@Transactional
 		public List<Supplier> list() {
@@ -27,18 +26,21 @@ import com.shoppingCart.model.Supplier;
 		@Transactional
 		public Supplier get(String id) {
 			// TODO Auto-generated method stub
-			return null;
+			return (Supplier)sessionFactory.getCurrentSession().get(Supplier.class, id);
 		}
 
 		@Transactional
-		public void saveOrUpdate(Supplier category) {
+		public void saveOrUpdate(Supplier supplier) {
 			// TODO Auto-generated method stub
-			
-			
+			Session session = sessionFactory.getCurrentSession();
+	        session.saveOrUpdate(supplier);
 		}
 
-		@Override
+		@Transactional
 		public void delete(String id) {
+			Supplier supplierToDelete = new Supplier();
+			supplierToDelete.setId(id);
+		sessionFactory.getCurrentSession().delete(supplierToDelete);
 			// TODO Auto-generated method stub
 			
 		}

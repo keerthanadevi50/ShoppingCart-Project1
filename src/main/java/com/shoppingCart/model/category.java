@@ -37,12 +37,10 @@ import javax.persistence.Id;
 		this.categoryDetails = categoryDetails;
 	}
 
-	@Override
-	public String toString() {
-		return this.id + " " + this.categoryDetails;
+	
 	}
 	
 
-	}
+	
 
 

@@ -8,7 +8,7 @@ import com.shoppingCart.model.Users;
 @Service
 public class UsersServiceImpl implements UsersService {
 @Autowired
-private UsersDao UsersDAO;
+private UsersDao usersDao;
 
 
 	public UsersServiceImpl() {
@@ -17,7 +17,7 @@ private UsersDao UsersDAO;
 	}
 
 	public Users saveUsers(Users users) {
-		return UsersDAO.saveUsers(users);
+		return usersDao.saveUsers(users);
 
 }
 }

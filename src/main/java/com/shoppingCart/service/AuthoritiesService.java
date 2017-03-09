@@ -5,7 +5,9 @@ import java.util.List;
 import com.shoppingCart.model.Authorities;
 
 public interface AuthoritiesService {
+	
 	public Authorities get(String username);
+	public Authorities getRole(String username);
 
 	public List<Authorities> list();	
 	
