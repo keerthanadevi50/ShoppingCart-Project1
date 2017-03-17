@@ -20,38 +20,34 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Transactional
-	public product saveProduct(product pro) {
-		return productDAO.saveProduct(pro);
+	public void saveProduct(product pro) {
+		 productDAO.saveProduct(pro);
 	}
 
 	@Transactional
 	public List<product> getAllProducts() {
 		// TODO Auto-generated method stub
-		return null;
+		return productDAO.getAllProducts();
 	}
 
 	@Transactional
 	public product getProductById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return productDAO.getProductById(id);
 	}
 
 	@Transactional
 	public void deleteProduct(int id) {
 		// TODO Auto-generated method stub
+		productDAO.deleteProduct(id);
 
 	}
 
 	@Transactional
 	public void updateProduct(product pro) {
 		// TODO Auto-generated method stub
-
+productDAO.updateProduct(pro);
 	}
 
-	@Override
-	public product getProductById(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 }

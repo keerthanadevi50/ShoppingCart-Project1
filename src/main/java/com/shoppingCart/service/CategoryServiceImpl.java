@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.shoppingCart.dao.CategoryDao;
 import com.shoppingCart.model.category;
@@ -25,9 +26,16 @@ public class CategoryServiceImpl implements CategoryService {
 		return categoryDao.getCatById(catId);
 	}
 
-	@Override
+	@Transactional
 	public void update(category cat) {
 		categoryDao.update(cat);
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Transactional
+	public void delete(int id) {
+		categoryDao.delete(id);
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,11 +1,11 @@
 package com.shoppingCart.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,8 +14,10 @@ import com.shoppingCart.model.Authorities;
 import com.shoppingCart.model.BillingAddress;
 import com.shoppingCart.model.ShippingAddress;
 import com.shoppingCart.model.Users;
+import com.shoppingCart.model.product;
 import com.shoppingCart.service.AuthoritiesService;
 import com.shoppingCart.service.BillingAddressService;
+import com.shoppingCart.service.ProductService;
 import com.shoppingCart.service.ShippingAddressService;
 import com.shoppingCart.service.UsersService;
 
@@ -41,6 +43,8 @@ public class CustomerController {
 	private BillingAddress billingAddress;
 	@Autowired
 	private BillingAddressService billingAddressService;
+	@Autowired
+	private ProductService productService;
 
 	public CustomerController() {
 		System.out.println("INSTANTIATING CUSTOMERCONTROLLER");
@@ -89,6 +93,8 @@ public class CustomerController {
 		
 		if(role.equals("ROLE_USER")){
 			model.addAttribute("loginUser",true);
+			List<product> productList = productService.getAllProducts();
+			model.addAttribute("productList", productList);
 			return "UserLogin";
 		}
 		else if(role.equals("ROLE_ADMIN"))

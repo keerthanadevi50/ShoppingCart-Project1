@@ -8,6 +8,7 @@ package com.shoppingCart.service;
 	public interface CategoryService {
 	public	List<category> getCategories();
 	public category getCatById(int catId);
+	public void delete(int id);
 	void update(category cat);
 	}
 

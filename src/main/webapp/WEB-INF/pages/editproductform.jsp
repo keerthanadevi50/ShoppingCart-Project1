@@ -3,79 +3,77 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false" %>
 <%@ include file="header.jsp" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script>
-$(function(){
-$('input[name=mfg]').datepicker({
-	format:'YYYY-mm-dd'
-});	
-});
-</script>
+<style>
+.jumbotron {
+	background-color: white;
+	color: #27A4F7;
+}
+button {
+	background-color: white;
+	color: #27A4F7;
+	width: 180px;
+}
+}
+</style>
 </head>
 <body>
-<div class="container-wrapper">
-<div class="container">
-<c:url value="/admin/product/editProduct" var="url"></c:url>
-<form:form action="${url }"  commandName="product">
-
-<div class="form-group">
-<label for="id"></label>
-<form:hidden  path="id"/>
-</div>
-
-<div class="form-group">
-<label for="name">Product Name</label>
-<form:input path="name" class="form-control"/>
-<form:errors path="name" cssStyle="color:#ff0000"></form:errors>
-</div>
-
-<div class="form-group">
-<label for="description">Description</label>
-<form:input path="description" class="form-control"/>
-<form:errors path="description" cssStyle="color:#ff0000"></form:errors>
-</div>
-
-<div class="form-group">
-<label for="price">Price</label>
-<form:input path="price" class="form-control" />
-<form:errors path="price" cssStyle="color:#ff0000"></form:errors>
-</div>
-
-<div class="form-group">
-<label for="quantity">Quantity</label>
-<form:input path="quantity" class="form-control"/>
-<form:errors path="quantity" cssStyle="color:#ff0000"></form:errors>
-</div>
-
-<div class="form-group">
-<label for="mfg">Mfg Date</label>
-<form:input path="mfg" class="form-control"/>
-<form:errors path="mfg" cssStyle="color:#ff0000"></form:errors>
-</div>
-
-<div class="form-group">
-<label for="category">Category</label>
-<!-- List<Category> c =model.getAttribute("categories");
-out.println(c.id)
-out.println(c.categoryDetails);
- -->
-<c:forEach var="c" items="${categories}">
-<form:radiobutton path="category.id" value="${c.id}"/>${c.categoryDetails }
-</c:forEach>
-<form:errors path="mfg" cssStyle="color:#ff0000"></form:errors>
-</div>
-
-<input type="submit" value="Edit Product" class="btn btn-default">
-</form:form>
-
-</div>
 
 
-</div>
+<div class="container" style="color: #1F618D">
+		<div class="jumbotron" style="background-color:#EAECEE">
+			
+			<h3 align="center" style="color: #27A4F7">Edit  your product</h3>
+			<form action="../editProduct"class="form-horizontal"  method="post"   role="form" name="product">
+				<div style="color: #27A4F7" class="form-group">
+					<label for="text">Id of the Product:</label> 
+					<input class="form-control"  type="text"  id="id" name="pid" value="${product.pid}" readonly>
+				</div>
+
+			
+				<div style="color: #27A4F7" class="form-group">
+					<label for="text">category:</label> 
+					<input class="form-control" placeholder="category" type="text"  id="name" name="category" value="${product.category}" readonly>
+				</div>
+				<div style="color: #27A4F7" class="form-group">
+					<label for="text">Product Name:</label> 
+					<input name="name" class="form-control" placeholder="Description" type="text"  id="name"  value="${product.name}" >
+				</div>
+				<div style="color: #27A4F7" class="form-group">
+					<label for="text">Description about Product:</label> 
+					<input name="description" class="form-control" placeholder="Description" type="text"  id="description"  value="${product.description}" >
+				</div>
+				<div style="color: #27A4F7" class="form-group">
+					<label for="text">manufacturer</label> 
+					<input class="form-control" placeholder="product" type="text"  id="name" name="mfg" value="${product.mfg}" >
+				</div>
+				<div style="color: #27A4F7" class="form-group">
+					<label for="text">Price</label> 
+					<input class="form-control" placeholder="product" type="text"  id="name" name="price" value="${product.price}">
+				</div>
+				<div style="color: #27A4F7" class="form-group">
+					<label for="text">Quantity</label> 
+					<input class="form-control" placeholder="product" type="text"  id="name" name="quantity value="${product.quantity}" >
+				</div>
+				<div style="color: #27A4F7" class="form-group">
+					<label for="text">Stock</label> 
+					<input class="form-control" placeholder="product" type="text"  id="name" name="stock" value="${product.stock}" >
+				</div>
+				<div style="color: #27A4F7" class="form-group">
+					<label for="text">Year of Published</label> 
+					<input class="form-control" placeholder="product" type="text"  id="published" name="published" value="${product.published}" >
+				</div>
+				<div style="color: #27A4F7" class="form-group">
+					<label for="text">Author</label> 
+					<input class="form-control" placeholder="product" type="text"  id="author" name="author" value="${product.author}" >
+				</div>
+				<button style="background-color: #27A4F7;color:white" type="submit" value="submit" class="btn btn-default">Upload</button>
+				
+				</form>
+
 </body>
 </html>

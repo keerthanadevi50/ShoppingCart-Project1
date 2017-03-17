@@ -1,31 +1,25 @@
 package com.shoppingCart.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.shoppingCart.model.category;
-import com.shoppingCart.service.CategoryService;
-
+import com.shoppingCart.model.product;
+import com.shoppingCart.service.ProductService;
 
 @Controller
 public class HomeController {
+@Autowired 
+private ProductService productService;	
 	
-	
-	@Autowired
-	private CategoryService categoryService;
 	
 	
 	public HomeController() {
 		System.out.println("INSTANTIATING HOMECONTROLLER");
 	}
-	@RequestMapping("addProduct")
-	public String getaddProduct(@RequestParam("name") String name){
-		System.out.println(name);
-		return "aboutUs";
-	}
+	
 	
 	
 	@RequestMapping("/home")
@@ -34,14 +28,12 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/")
-	public String getindex(){
+	public String getindex(Model model){
+		List<product> productList = productService.getAllProducts();
+		model.addAttribute("productList", productList);
 		return "home";
 	}
-	@RequestMapping("/newCategory")
-	public String newCategory(@ModelAttribute category cat){
-		categoryService.update(cat);
-		return "productform";
-	}
+	
 	
 	
 	@RequestMapping("/aboutUs")
@@ -49,10 +41,20 @@ public class HomeController {
 		return "aboutUs";
 	}
 		
-		@RequestMapping("/login")
-		public String login(){
+		@RequestMapping("/asdfg")
+		public String asdfg(){
 			return "login";
 		}
+		@RequestMapping("/success")
+		public String spage(){
+			return "success";
+		}
+		@RequestMapping("/sidebar")
+		public String sidepage(){
+			return "sidebar";
+		}
+		
+		
 		
 		
 	

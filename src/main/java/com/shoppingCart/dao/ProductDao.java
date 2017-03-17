@@ -5,7 +5,7 @@ import com.shoppingCart.model.product;
 import java.util.List;
 
 public interface ProductDao {
-	product saveProduct(product pro);
+	void saveProduct(product pro);
 
 	List<product> getAllProducts();
 

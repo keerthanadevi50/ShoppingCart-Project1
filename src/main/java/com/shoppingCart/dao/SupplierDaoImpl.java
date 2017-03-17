@@ -2,6 +2,8 @@ package com.shoppingCart.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.shoppingCart.model.Supplier;
+import com.shoppingCart.model.product;
 
 @Repository
 	public class SupplierDaoImpl implements SupplierDao {
@@ -16,17 +19,25 @@ import com.shoppingCart.model.Supplier;
 		@Autowired
 		private SessionFactory sessionFactory;
 		
+		
 		@SuppressWarnings("unchecked")
 		@Transactional
 		public List<Supplier> list() {
-			// TODO Auto-generated method stub
-			return sessionFactory.getCurrentSession().createQuery("from Supplier").list();
+			@SuppressWarnings({ "unchecked" })
+			List<Supplier> listSupplier = (List<Supplier>) sessionFactory.getCurrentSession().createCriteria(Supplier.class)
+					.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+			return listSupplier;
 		}
 
 		@Transactional
 		public Supplier get(String id) {
 			// TODO Auto-generated method stub
-			return (Supplier)sessionFactory.getCurrentSession().get(Supplier.class, id);
+			Session session = sessionFactory.openSession();
+			// select * from product where id=34
+			Supplier supplier = (Supplier) session.get(Supplier.class, id);
+			session.close();
+			return supplier;
+			
 		}
 
 		@Transactional

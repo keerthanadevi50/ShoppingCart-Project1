@@ -64,7 +64,7 @@ public class ShippingAddressDaoImpl implements ShippingAddressDao {
 		
 	}
 
-	@Override
+	@Transactional
 	public void delete(int shippingId) {
 		ShippingAddress shippingAddressToDelete = new ShippingAddress();
 		shippingAddressToDelete.setId(shippingId);

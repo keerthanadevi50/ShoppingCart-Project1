@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.shoppingCart.model.category;
+import com.shoppingCart.model.product;
 
 @Repository
 public class CategoryDaoImpl implements CategoryDao {
@@ -19,11 +20,11 @@ public class CategoryDaoImpl implements CategoryDao {
 	private SessionFactory sessionFactory;
 
 	@SuppressWarnings("unchecked")
-	@Override
+	@Transactional
 	public List<category> getCategories() {
 
 		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("from Category");
+		Query query = session.createQuery("from category");
 		List<category> categories = query.list();
 		session.close();
 		return categories;
@@ -42,10 +43,24 @@ public class CategoryDaoImpl implements CategoryDao {
 	}
 	@Transactional
 	public void update(category cat) {
+		@SuppressWarnings("unused")
 		int catId = cat.getId();
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(cat);
+	}
+	@Transactional
+	public void delete(int id) {
+		Session session = sessionFactory.openSession();
+		// Make the object persistent[read the data from the table and add it to
+		// session]
+		category cat = (category) session.get(category.class, id);
+		session.delete(cat);
+		session.flush();
+		session.close();
+
+		// TODO Auto-generated method stub
+		
 	}
 
 		    

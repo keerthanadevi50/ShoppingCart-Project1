@@ -29,22 +29,21 @@ public class ProductDaoImpl implements ProductDao {
 		System.out.println("CREATING INSTANCE FOR PRODUCTDAOIMPL");
 	}
 @Transactional
-	public product saveProduct(product pro) {
-		System.out.println(pro.getPid());
+	public void saveProduct(product pro) {
+	
 		Session session = sessionFactory.openSession();
-		session.save(pro); // insert into product values (next.val,.....)
+		session.saveOrUpdate(pro); // insert into product values (next.val,.....)
 		session.flush();
 		session.close();
-		System.out.println(pro.getPid());
-		return pro;
+		
 	}
  @Transactional
 	public List<product> getAllProducts() {
 		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("from Product");
-		List<product> products = query.list();
+		Query query = session.createQuery("from product");
+		List<product> productList = query.list();
 		session.close();
-		return products;
+		return productList;
 	}
 @Transactional
 	public product getProductById(int id) {

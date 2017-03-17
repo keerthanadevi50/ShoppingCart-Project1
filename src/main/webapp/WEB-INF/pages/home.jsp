@@ -82,6 +82,6 @@ form {
 
 		</a>
 	</div>
-<%@ include file="/WEB-INF/pages/categoryform.jsp" %>
+<%@ include file="productlist.jsp"%>
 </body>
 </html>

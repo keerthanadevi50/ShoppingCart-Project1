@@ -17,19 +17,13 @@ import javax.persistence.Table;
 		@GeneratedValue(strategy=GenerationType.AUTO)
 		@Column(name="pid")
 		private int pid;
-		
-		
-		
-		private String category;
-		
-		
-		private String description;
-		
-		
-		
-		
-		private int mfg;
 		private String name;
+		private String description;
+		private String category;
+		private String author;
+		private String published;
+		private String mfg;
+		private int stock;
 		private int price;
 		
 		private int quantity;
@@ -58,11 +52,11 @@ import javax.persistence.Table;
 			this.description = description;
 		}
 
-		public int getMfg() {
+		public String getMfg() {
 			return mfg;
 		}
 
-		public void setMfg(int mfg) {
+		public void setMfg(String mfg) {
 			this.mfg = mfg;
 		}
 
@@ -88,6 +82,30 @@ import javax.persistence.Table;
 
 		public void setQuantity(int quantity) {
 			this.quantity = quantity;
+		}
+
+		public String getAuthor() {
+			return author;
+		}
+
+		public void setAuthor(String author) {
+			this.author = author;
+		}
+
+		public String getPublished() {
+			return published;
+		}
+
+		public void setPublished(String published) {
+			this.published = published;
+		}
+
+		public int getStock() {
+			return stock;
+		}
+
+		public void setStock(int stock) {
+			this.stock = stock;
 		}
 		
 		

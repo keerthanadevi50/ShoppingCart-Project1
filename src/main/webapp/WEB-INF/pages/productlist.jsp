@@ -1,45 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ include file="header.jsp"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+   <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+<style>
+
+.menu {
+    width: 30%;
+    float: left;
+    padding: 18px;
+   
+}
+h3 { 
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    font-weight: bold;
+}
+img{
+width: 60%;
+}
+</style>
 </head>
 <body>
-	<div class="container">
+	<h2>List of Products</h2>
 
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Product Name</th>
-					<th>Description</th>
+	<div class ="row">
+	<c:forEach items="${productList}" var="product">	
+<div class="menu">	
+<h3>
+	${product.name}
+	</h3>
+<a href="<spring:url value="productdetails/${product.pid}"/>">
+    <img src="<c:url value="resources/productimages/ProductId${product.pid}"/>" alt="${product.pid}" width="200" height="300">
+  </a>
+<div id="container"><span>&#x20B9;</span>${product.price }</div>
+</div>
 
-				</tr>
-			</thead>
-			<c:forEach var="p" items="${productList}">
-				<tr>
-					<td>${p.name }</td>
-					<td>${p.description }</td>
-					<td>${p.category.categoryDetails}</td>
-				</tr>
-				<tr>
-					<c:url var="url" value="/all/product/viewproduct/${p.id }"></c:url>
-					<td>
-					<a href="${url }"><span class="glyphicon glyphicon-info-sign"></span></a> 
-					<c:url var="delete" value="/admin/product/deleteproduct/${p.id }"></c:url>
-					<a href="${delete }"><span class="glyphicon glyphicon-remove"></span></a>
-					
-					<c:url var="edit" value="/admin/product/editform/${p.id }"></c:url>
-					<a href="${edit }"><span class="glyphicon glyphicon-pencil"></span></a>
-				    </td>
-				</tr>
-			</c:forEach>
-		</table>
-
+	</c:forEach>
 	</div>
+
+
+	
 </body>
 </html>

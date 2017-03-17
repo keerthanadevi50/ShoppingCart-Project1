@@ -28,7 +28,7 @@ button {
 			
 			<h3 align="center" style="color: #27A4F7">Create a new category</h3>
 
-			<form action="newCategory"class="form-horizontal"  method="post" action="newUser"  role="form" name="category">
+			<form action="newCategory"class="form-horizontal"  method="post" action="newCategory"  role="form" name="category">
 				<div style="color: #27A4F7" class="form-group">
 					<label for="text">Description about category:</label> 
 					<input  name="categoryName"class="form-control" placeholder="categoryName" type="text"  id="desctription"  >

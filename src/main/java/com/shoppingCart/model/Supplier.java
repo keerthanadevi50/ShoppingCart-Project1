@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 	@Id
     @GeneratedValue
 		private String id;
-		
 		private String name;
 		private long phoneNo;
 		private String emailId;

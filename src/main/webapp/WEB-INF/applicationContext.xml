@@ -25,6 +25,7 @@
 
 				<value>com.shoppingCart.model.product</value>
 				<value>com.shoppingCart.model.category</value>
+				<value>com.shoppingCart.model.Cart</value>
 				<value>com.shoppingCart.model.Users</value>
 				<value>com.shoppingCart.model.Authorities</value>
 				<value>com.shoppingCart.model.Supplier</value>
@@ -63,7 +64,7 @@
 
 		<security:form-login 
 			authentication-failure-url="/login?error" 
-			login-processing-url="/loginpage"
+			login-processing-url="/login"
 			default-target-url="/afterlogin" 
 			username-parameter="username"
 			password-parameter="password" />
