@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ include file="/WEB-INF/pages/header.jsp" %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -33,8 +33,8 @@ button {
 	width: 180px;
 }
 .carousel-inner>.item>img {
-	width: 1500px;
-	height: 400px;
+	width: 1200px;
+	height: 100px;
 }
 form {
 	color: white;
@@ -42,28 +42,34 @@ form {
 </style>
 </head>
 <body>
+<%@ include file="/WEB-INF/pages/header.jsp" %>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="1"></li>
 			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
 		</ol>
 
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
 				<img src="<c:url value="/resources/img/g.jpg"/>" alt="first"
-					width="300px" height="600px">
+					width="900px" height="100px">
 			</div>
 <div class="item">
 				<img src="<c:url value="/resources/img/index.jpg"/>"
-					alt="third" width="1000" height="300">
+					alt="second" width="900" height="100">
 			</div>
 
 			<div class="item">
-				<img src="<c:url value="/resources/img/h.jpg"/>"
-					alt="second" width="1000" height="300">
+				<img src="<c:url value="/resources/img/s.jpg"/>"
+					alt="third" width="900" height="100">
+			</div>
+			<div class="item">
+				<img src="<c:url value="/resources/img/y.jpg"/>"
+					alt="fourth" width="900" height="100">
 			</div>
 
 		</div>
@@ -76,6 +82,12 @@ form {
 			class="glyphicon glyphicon-chevron-right"></span>
 
 		</a>
+		<a class=" carousel-control right" href="#myCarousel" role="button"
+			data-slide="next"> <span
+			class="glyphicon glyphicon-chevron-right"></span>
+
+		</a>
+		
 		<a class=" carousel-control right" href="#myCarousel" role="button"
 			data-slide="next"> <span
 			class="glyphicon glyphicon-chevron-right"></span>

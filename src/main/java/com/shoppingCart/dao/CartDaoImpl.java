@@ -5,11 +5,13 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.shoppingCart.model.Cart;
+import com.shoppingCart.model.Users;
 @Repository
 public class CartDaoImpl implements CartDao{
 	
@@ -33,9 +35,9 @@ public class CartDaoImpl implements CartDao{
 	}
 
 	@Transactional
-	public Cart get(int id) {
+	public Cart get(int cartId) {
 		Session session = sessionFactory.getCurrentSession();
-		return (Cart) session.get(Cart.class, id);	
+		return (Cart) session.get(Cart.class, cartId);	
 	}
 
 	@Transactional
@@ -52,6 +54,17 @@ public class CartDaoImpl implements CartDao{
 		session.delete(cart);
 		session.flush();
 		session.close();
+	}
+	
+
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Cart> getCartByuserName(String userName)
+	{
+		// TODO Auto-generated method stub
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Cart.class);
+		criteria.add(Restrictions.eq("userName", userName));
+		return  criteria.list();
 	}
 	
 	

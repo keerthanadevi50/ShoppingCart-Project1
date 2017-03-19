@@ -1,8 +1,10 @@
 package com.shoppingCart.dao;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +34,14 @@ public class UsersDaoImpl implements UsersDao {
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+
+	@Transactional
+	public Users getUsersById(String username) {
+		// TODO Auto-generated method stub
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Users.class);
+		criteria.add(Restrictions.eq("username", username));
+		return (Users) criteria.uniqueResult();
 	}
 
 }

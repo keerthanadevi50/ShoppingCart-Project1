@@ -29,9 +29,9 @@ public class CartServiceImpl implements CartService{
 		}
 
 		@Transactional
-		public Cart get(int id) {
+		public Cart get(int cartId) {
 			// TODO Auto-generated method stub
-			return cartDao.get(id);
+			return cartDao.get(cartId);
 		}
 
 		@Transactional
@@ -44,6 +44,12 @@ public class CartServiceImpl implements CartService{
 		public void delete(int cartId) {
 			// TODO Auto-generated method stub
 			cartDao.delete(cartId);
+		}
+
+		@Transactional
+		public List<Cart> getCartByuserName(String userName) {
+			// TODO Auto-generated method stub
+			return cartDao.getCartByuserName(userName);
 		}
 
 		

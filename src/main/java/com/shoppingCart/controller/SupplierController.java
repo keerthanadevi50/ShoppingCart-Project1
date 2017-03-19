@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shoppingCart.model.Supplier;
-import com.shoppingCart.model.product;
 import com.shoppingCart.service.SupplierService;
 
 @Controller

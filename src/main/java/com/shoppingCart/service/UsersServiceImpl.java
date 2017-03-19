@@ -2,6 +2,7 @@ package com.shoppingCart.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.shoppingCart.dao.UsersDao;
 import com.shoppingCart.model.Users;
@@ -15,9 +16,16 @@ private UsersDao usersDao;
 		System.out.println("CREATING INSTANCE FOR PRODUCTSERVICEIMPL");
 
 	}
-
+@Transactional
 	public Users saveUsers(Users users) {
 		return usersDao.saveUsers(users);
 
 }
+
+
+	@Transactional
+	public Users getUsersById(String username) {
+		// TODO Auto-generated method stub
+		return usersDao.getUsersById(username);
+	}
 }

@@ -11,11 +11,14 @@ public interface CartDao {
 		
 		public List<Cart> list();
 		
-		public Cart get(int id);
+		public Cart get(int cartId);
 		
 		public void saveOrUpdate(Cart cart);
 		
 		public void delete(int cartId);
+
+
+		public List<Cart> getCartByuserName(String userName);
 			
 
 

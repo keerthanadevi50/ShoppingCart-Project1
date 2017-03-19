@@ -5,30 +5,46 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Product Form</title>
+<style>
+
+
+.button:hover {
+background: #ccc;
+cursor: pointer;
+}
+
+</style>
 </head>
 <body>
-
-	<div class="container-wrapper">
 		<div class="container">
 		
-		<form action="addproduct" method="post" enctype="multipart/form-data">
+		<form class="form-horizontal" action="addproduct" method="post" enctype="multipart/form-data" >
 		
-		<div>
-			<label>product name</label>
+		<div class="form-group">
+			<label class="control-label col-sm-2">product name</label>
 				<input type="text" name="name">
 			</div>
 			
+			<div class="form-group">
+			<label class="control-label col-sm-2">product description</label>
 			
-			<div>
-			<label>product description</label>
 				<input type="text" name="description">
+			
 			</div>
-			<div>
-			<label>category name</label>
+			
+			<div class="form-group">
+			<label class="control-label col-sm-2">category name</label>
 				<select name="category">
 				<option value="">Select Category</option>
 				<c:forEach items="${categoryList}" var="category">
@@ -37,16 +53,18 @@
 				</c:forEach>
 				</select>
 			</div>
-			<div>
-			<label>Author</label>
+			<div class="form-group">
+			<label class="control-label col-sm-2">Author</label>
 				<input type="text" name="author">
 			</div>
-			<div>
-			<label>Year published</label>
+			<div class="form-group">
+			<label class="control-label col-sm-2">Year published</label>
 				<input type="text" name="published">
+			
 			</div>
-						<div>
-			<label>manufacturer</label>
+						<div class="form-group">
+			<label class="control-label col-sm-2">manufacturer</label>
+			
 				<select name="mfg">
 				<option value="">Select Supplier</option>
 				<c:forEach items="${supplierList}" var="supplier">
@@ -58,33 +76,36 @@
 			
 			
 			
-			<div>
-			<label>price</label>
-				<input type="text" name="price">
-			</div>
+			<div class="form-group">
+			<label class="control-label col-sm-2">price</label>
 			
-			<label>stock</label>
+				<input type="text" name="price">
+			
+			</div>
+			<div class="form-group">
+			<label class="control-label col-sm-2">stock</label>
 				<input type="text" name="stock">
 			</div>
-			<div>
-			<label>quantity</label>
+			<div class="form-group">
+			<label class="control-label col-sm-2">quantity</label>
+			
 				<input type="text" name="quantity">
+			
 			</div>
 			
-			<div>
-			<label>Select your product image</label>
+			<div class="form-group">
+			<label class="control-label col-sm-2">Select your product image</label>
+			
 				<input type="file" name="prdImage" accept=".jpg,.png,.jpeg">
+			
 			</div>
 		<div>
 			<input type="submit" value="addProduct">
-		
-		
 		</div>
-			
 		
 		</form>
 		
 		</div>
-	</div>
+
 </body>
 </html>

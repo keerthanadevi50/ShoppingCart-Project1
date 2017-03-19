@@ -10,7 +10,9 @@ public interface CartService {
 		
 		public List<Cart> list();
 		
-		public Cart get(int id);
+		public Cart get(int cartId);
+		
+		public List<Cart> getCartByuserName(String userName);
 		
 		public void saveOrUpdate(Cart cart);
 		
