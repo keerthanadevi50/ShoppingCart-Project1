@@ -110,20 +110,36 @@ font-family: Raleway;
 	
 <body>
 		<div class="container yellow topBotomBordersOut">
-		<a href="">Home</a>
-			<a href="">AboutUs</a>
+		<a href="home">Home</a>
+			<a href="aboutUs">AboutUs</a>
+		
 			<c:if test= "${not empty loginUser }">
-			<a href="" >Track Orders </a>
-			<a href="productform">Browse All Books</a>
+			<a href="trackorders.jsp" >Track Orders </a>
+			<a href="productlist">Browse All Books</a>
 			<a href="viewcart">Cart</a>
 			<a href="newshippingAddress">ShippingAddress</a>
 			<a href="newbillingAddress">BillingAddress</a>
 			</c:if>
+			<c:choose>
+			<c:when test= "${ not empty loginUser }"> 
+            <a href="registerCustomer">Register</a>
+            <a href="j_spring_security_logout">Logout</a>
+			</c:when>
 			
+             <c:when test= "${ not empty loginAdmin }"> 
+            <a href="registerCustomer">Register</a>
+            <a href="j_spring_security_logout">Logout</a>
+             </c:when>
+             <c:otherwise> 
+             <a href="registerCustomer">Register</a>
+			 <a href="asdfg">Login</a>
 			
-  <a href="asdfg">Login</a>
-  <a href="registerCustomer">Register</a>
-  <a href="j_spring_security_logout">Logout</a>
+			</c:otherwise>
+			</c:choose>
+	
+			
+ 
+ 
 			</div>
 <p>
              <a class="blink" >Welcome to the World's Biggest Online Book Station!</a> 

@@ -41,6 +41,6 @@ button {
 				<button style="background-color: #27A4F7;color:white" type="submit" value="submit" class="btn btn-default">Upload</button>
 				
 				</form>
-
+<%@ include file="footer.jsp" %>
 </body>
 </html>

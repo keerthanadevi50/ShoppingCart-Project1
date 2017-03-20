@@ -11,7 +11,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script  src="<c:url value="/resources/js/CartController.js"/>"></script>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
+img{
+border:thick;
+margin-left: auto;
+}
+.button
+{
+color="yellow"
+}
 div.stars {
   width: 270px;
   display: inline-block;
@@ -49,24 +59,25 @@ label.star:before {
 </style>
 </head>
 <body ng-app="addToCartApp" ng-controller="addToCartCtrl">
-<h2 align="center" style="margin-top: 0em; margin-bottom: -2em;">${product.name}</h2>
-<div class="container" style="margin: 0px 10px 0px 300px">
+<h2 align="center" style="margin-top: 1em; margin-bottom: 0.5em;">${product.name}</h2>
+<div class="container" style="margin: 0px 30px 0px 80px">
 <br>
-<img src="<c:url value="/resources/productimages/ProductId${product.pid}"/>" alt="${product.pid}" align="left" width="200" height="300">
+<img src="<c:url value="/resources/productimages/ProductId${product.pid}"/>" alt="${product.pid}" align="left" width="350" height="350">
 <form>
 
-<br>
- <table>
- <tr><td>out of stock	:<span class="label label-default">zero stock left</span></td></tr>
-<tr><td>Product Name	:<span class="label label-default">${product.name} </span></td></tr>
-<tr><td>Product Description	:<span class="label label-default">${product.description}</span></td></tr>
-<tr><td>Product Price	:<span class="label label-default">${product.price}</span></td></tr>
-<tr><td class="success" "color:blue;">Product Available	:${product.stock}</td></tr>
-<tr><td>Author	:<span class="label label-default">${product.author}</span></td></tr>
-<tr><td>Published Year	:<span class="label label-default">${product.published}</span></td></tr>
-<tr><td>Publisher	:<span class="label label-default">${product.mfg}</span></td></tr>
-<tr><td><button class ="add-to-cart btn btn-default" type="button" ng-click="addtocart('${product.pid}')">add to cart</button>
-<button class="btn-btn-primary" onclick="goBack()">Go Back</button></td></tr>
+ <table> 
+<tr><td class="col-sm-4" style="background-color:lavender;">Product Name	: </td> <td class="col-sm-4" style="background-color:lavenderblush;"> ${product.name} </td></tr>
+<tr><td class="col-sm-4">out of stock	: </td> <td  class="col-sm-4">  zero stock left</td></tr>
+<tr><td class="col-sm-4" >Product Description	: </td> <td class="col-sm-4"> ${product.description}</td></tr>
+<tr><td class="col-sm-4" style="background-color:lavender;">Product Price	: </td> <td class="col-sm-4" style="background-color:lavenderblush;"><span>&#x20B9;</span> ${product.price}</td></tr>
+<tr><td class="col-sm-4" >Product Available	: </td> <td class="col-sm-4" >${product.stock}</td></tr>
+<tr><td class="col-sm-4" style="background-color:lavender;">Author	: </td> <td class="col-sm-4" style="background-color:lavenderblush;">${product.author}</td></tr>
+<tr><td class="col-sm-4">Published Year	: </td> <td  class="col-sm-4" >  ${product.published}</td></tr>
+<tr><td class="col-sm-4" style="background-color:lavender;">Publisher	: </td> <td style="background-color:lavenderblush;"> ${product.mfg} </td></tr>
+
+<tr><td class="col-sm-4"></td></tr>
+<tr><td ><button  type="button" class="btn btn-info btn-lg"  ng-click="addtocart('${product.pid}')" <span class="glyphicon glyphicon-shopping-cart">Add to Cart </span></button>
+		<button type="button" class= "btn btn-warning" onclick="goBack()">Continue Shopping</button></td></tr>
 </table>
 <div class="stars">
 

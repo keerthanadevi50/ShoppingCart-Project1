@@ -36,6 +36,6 @@
     <input type="submit" class="btn btn-default" value="submit">
   </form>
  </div>
-	
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

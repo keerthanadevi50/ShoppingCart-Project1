@@ -9,6 +9,8 @@
     <th>Manufacturer</th>
     <th>Price</th>
     <th>Quantity</th>
+    <th>Author</th>
+    <th>Stock</th>
   </tr>
   <c:forEach items="${productList}" var="product" varStatus="status">
   <tr>

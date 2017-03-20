@@ -23,6 +23,6 @@
 	<c:otherwise><%@ include file="productlist.jsp"%>	</c:otherwise>
 	
 	</c:choose>
-
+<%@ include file="footer.jsp" %>
 </body>
 </html>

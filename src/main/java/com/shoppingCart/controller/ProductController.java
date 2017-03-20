@@ -102,6 +102,10 @@ public class ProductController {
 		FileUtil.upload("H://it/src/main/webapp/WEB-INF/resources/productimages/", file, "ProductId"+pro.getPid());
 		return "redirect:/viewproduct";
 	}
-
+	@RequestMapping("/productlist")
+public String prolistpage()
+{
+		return "productlist";
+}
 
 }

@@ -126,6 +126,6 @@
 			<h1 style="margin-left: 35%;">Welcome Admin !!</h1>
 		</c:otherwise>
 </c:choose>
-
+<%@ include file="footer.jsp" %>
 </body>
 </html>

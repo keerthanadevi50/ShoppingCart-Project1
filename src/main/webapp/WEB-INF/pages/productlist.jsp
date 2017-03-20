@@ -39,17 +39,28 @@ width: 60%;
 	<h2>List of Products</h2>
 
 	<div class ="row">
+	
 	<c:forEach items="${productList}" var="product">	
 <div class="menu">	
 <h3>
 	${product.name}
 	</h3>
 <a href="<spring:url value="productdetails/${product.pid}"/>">
-    <img src="<c:url value="resources/productimages/ProductId${product.pid}"/>" alt="${product.pid}" width="200" height="300">
+    <img src="<c:url value="resources/productimages/ProductId${product.pid}"/>" alt="${product.pid}" width="300" height="300">
   </a>
+  <table>
+  <tr>
+  <td>
 <div id="container"><span>&#x20B9;</span>${product.price }</div>
+</td>
+<td>
+ <a href="<spring:url value="viewcart/${product.pid}"/>">
+          <span class="glyphicon glyphicon-shopping-cart" ></span>buy now</a>
+          </td>
+          </tr>
+</table>
 </div>
-
+ 
 	</c:forEach>
 	</div>
 
