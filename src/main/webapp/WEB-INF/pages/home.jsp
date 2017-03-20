@@ -96,13 +96,7 @@ form {
 	</div>
 	<div class="container">
 	<div class ="row">
-	<div class="col-sm-4">
-      <div class="panel panel-warning">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="/resources/productimages/ProductId11" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy any 2 books and get a gift card</div>
-      </div>
-    </div>
+	
      <div class="col-sm-4"> 
       <div class="panel panel-danger">
         <div class="panel-heading">WEEKEND DEAL</div>
@@ -112,6 +106,11 @@ form {
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+			<li data-target="#myCarousel" data-slide-to="4"></li>
+			
+			
 			</ol>
 			<div class="carousel-inner" role="listbox">
 			<div class="item active">
@@ -121,6 +120,18 @@ form {
 				<img src="<c:url value="/resources/img/coc.jpg"/>"
 					class="img-responsive" style="width:100%" alt="Image">
 			</div>
+			<div class="item">
+				<img src="<c:url value="/resources/img/neet.jpg"/>"
+					class="img-responsive" style="width:100%" alt="Image">
+			</div>
+			<div class="item">
+				<img src="<c:url value="/resources/img/mer.jpg"/>"
+					class="img-responsive" style="width:100%" alt="Image">
+			</div>
+			<div class="item">
+				<img src="<c:url value="/resources/img/gulli.jpeg"/>"
+					class="img-responsive" style="width:100%" alt="Image">
+			</div>
 			<a class=" carousel-control left" href="#myCarousel" role="button"
 			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span>
 
@@ -128,25 +139,130 @@ form {
 			data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
 
 		</a>
+		<a class=" carousel-control right" href="#myCarousel" role="button"
+			data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+
+		</a>
+		<a class=" carousel-control right" href="#myCarousel" role="button"
+			data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+
+		</a>
+		<a class=" carousel-control right" href="#myCarousel" role="button"
+			data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+
+		</a>
 		<div class="panel-footer">Buy any 2 fictions and get 50% offer on each</div>
 		</div>
 		</div>
+		</div>
+		</div>
+		</div>
+		
+		
 		<div class="col-sm-4"> 
       <div class="panel panel-success">
-        <div class="panel-heading">24 HOURS DEAL</div>
-        <div class="panel-body"><img src="resources/productimages/ProductId7" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 3 fiction and get 50% offer on each</div>
-      </div>
-    </div>
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+			<li data-target="#myCarousel" data-slide-to="4"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+			<div class="item active">
+			<img src="resources/productimages/ProductId7" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="item">
+				<img src="<c:url value="resources/productimages/ProductId16"/>"
+					class="img-responsive" style="width:100%" alt="Image">
+			</div>
+			<div class="item">
+				<img src="<c:url value="resources/img/Deli.jpg"/>"
+					class="img-responsive" style="width:100%" alt="Image">
+			</div>
+			<div class="item">
+				<img src="<c:url value="resources/img/vam.jpg"/>"
+					class="img-responsive" style="width:100%" alt="Image">
+			</div>
+			<div class="item">
+				<img src="<c:url value="resources/img/melu.jpg"/>"
+					class="img-responsive" style="width:100%" alt="Image">
+			</div>
+			<a class=" carousel-control left" href="#myCarousel" role="button"
+			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a> 
+		<a class=" carousel-control right" href="#myCarousel" role="button"
+			data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+			</a> 
+			<a class=" carousel-control right" href="#myCarousel" role="button"
+			data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+			</a> 
+			<a class=" carousel-control right" href="#myCarousel" role="button"
+			data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+
+		</a>
+		<a class=" carousel-control right" href="#myCarousel" role="button"
+			data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+
+		</a>
+		<div class="panel-footer">Buy 3 fiction and get 50% offer on each</div>
+        </div>
+		</div>
+		</div>
+		</div>
+		</div>
     <div class="col-sm-4"> 
-      <div class="panel panel-info">
+      <div class="panel panel-warning">
         <div class="panel-heading">24 HOURS DEAL</div>
-        <div class="panel-body"><img src="resources/productimages/ProductId9" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+			<div class="item active">
+			<img src="resources/productimages/ProductId9" class="img-responsive" style="width:100%" alt="Image"></div>
+			 <div class="item">
+				<img src="<c:url value="resources/productimages/ProductId19"/>"
+					class="img-responsive" style="width:100%" alt="Image">
+			</div>
+			<div class="item">
+				<img src="<c:url value="resources/productimages/ProductId13"/>"
+					class="img-responsive" style="width:100%" alt="Image">
+			</div>
+			<div class="item">
+				<img src="<c:url value="resources/img/angel.jpg"/>"
+					class="img-responsive" style="width:100%" alt="Image">
+			</div>
+			<a class=" carousel-control left" href="#myCarousel" role="button"
+			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a> 
+		<a class=" carousel-control right" href="#myCarousel" role="button"
+			data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+			</a> 
+			<a class=" carousel-control right" href="#myCarousel" role="button"
+			data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+			<a class=" carousel-control right" href="#myCarousel" role="button"
+			data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+
+		</a>
         <div class="panel-footer">20% offer on dan brown's da vinci-series </div>
-      </div>
-    </div>
+        </div>
+		</div>
+		</div>
+		</div>
+		</div>
+      
   </div>
-</div><br>
+</div>
+
+
 
 </br>
 <%@ include file="footer.jsp" %>

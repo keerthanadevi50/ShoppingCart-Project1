@@ -17,8 +17,8 @@
    <td>${category.id}</td>
     <td>${category.categoryName}</td>
     <td>${category.categoryDetails }</td>
-    <td><a href="editCategory/${category.id}"> edit </a> </td>
-    <td><a href="deleteCategory/${category.id}">delete</a></td>
+    <td><a href="editCategory/${category.id}"><span class="glyphicon glyphicon-pencil"></span></a> </td>
+    <td><a href="deleteCategory/${category.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
   </tr>
  </c:forEach>
 </table>

@@ -24,8 +24,8 @@
     <td>${product.quantity }</td>
     <td>${product.author }</td>
     <td>${product.stock }</td>
-    <td><a href="editproductform/${product.pid}"> edit </a> </td>
-    <td><a href="deleteProduct/${product.pid}">delete</a></td>
+    <td><a href="editproductform/${product.pid}"><span class="glyphicon glyphicon-pencil"></span> </a> </td>
+    <td><a href="deleteProduct/${product.pid}"><span class="glyphicon glyphicon-trash"></span></a></td>
     
   </tr>
  </c:forEach>

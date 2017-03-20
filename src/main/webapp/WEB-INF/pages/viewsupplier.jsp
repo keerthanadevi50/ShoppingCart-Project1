@@ -18,8 +18,8 @@
     <td>${supplier.emailId}</td>
     <td>${supplier.address}</td>
     <td>${supplier.phoneNo}</td>
-    <td><a href="editsupplierform/${supplier.id}"> edit </a> </td>
-    <td><a href="deleteSupplier/${supplier.id}">delete</a></td>
+    <td><a href="editsupplierform/${supplier.id}"> <span class="glyphicon glyphicon-pencil"></span></a> </td>
+    <td><a href="deleteSupplier/${supplier.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
     
     
   </tr>
