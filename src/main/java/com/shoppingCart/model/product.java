@@ -23,8 +23,11 @@ import javax.persistence.Table;
 		private String author;
 		private String published;
 		private String mfg;
+		
 		private int stock;
+		
 		private int price;
+		
 		
 		private int quantity;
 

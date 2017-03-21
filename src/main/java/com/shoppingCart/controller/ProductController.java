@@ -105,6 +105,7 @@ public class ProductController {
 	@RequestMapping("/productlist")
 public String prolistpage()
 {
+		
 		return "productlist";
 }
 

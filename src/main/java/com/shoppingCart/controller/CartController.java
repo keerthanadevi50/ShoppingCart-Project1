@@ -2,6 +2,7 @@ package com.shoppingCart.controller;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,10 +23,15 @@ import com.shoppingCart.service.UsersService;
 
 @Controller
 public class CartController {
+	
 	@Autowired
 	private ProductService productService;
+		
 	@Autowired
 	private Cart cart;
+	
+	@Autowired
+	private Users users;
 	
 	@Autowired
 	private UsersService userService;
@@ -36,30 +42,68 @@ public class CartController {
 	@RequestMapping("productDetails/{id}")
 	public String viewProductDetails(@PathVariable ("id") int id, Model model) {
 		product pro = productService.getProductById(id);
-		
+	
 		model.addAttribute("productDetails", true);
 		model.addAttribute("product", pro);
-		return "users";	  
+		model.addAttribute("loginUser", true);
+		return "UserLogin";	  
 	 }
+	
+	
+	
 	@RequestMapping(value="/addtocart/{pid}" , method = RequestMethod.PUT)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
-	public void addtocart(@PathVariable("pid") int pid, Principal principal){
+	public void addtocart(@PathVariable("pid") int pid, Principal principal, Model model){
 		product pro = productService.getProductById(pid);
 		Users users = userService.getUsersById(principal.getName());
-		cart.setUserId(users.getId());
+		int userId = users.getId();
+		Cart crt = cartService.getByUserandProduct(userId, pid);
+		if(pro.getQuantity() > 1 ){
+			
+			Random t = new Random();
+			int day = 2 + t.nextInt(7);
+			
+			if(cartService.itemAlreadyExist(userId, pid, true)){
+				
+				int qty = crt.getQuantity() + 1;
+				crt.setQuantity(qty);
+				crt.setTotal(qty * pro.getPrice());
+				cartService.saveOrUpdate(crt);
+				
+			}
+			else
+			{
+		cart.setUserId(userId);
 		cart.setUserName(principal.getName());
 		cart.setProductName(pro.getName());
 		cart.setProductId(pro.getPid());
 		cart.setPrice(pro.getPrice());
 		cart.setQuantity(1);
 		cart.setStatus("Pending");
-		cart.setTotal(8);
-		cart.setDays(6);
+		cart.setTotal(pro.getPrice()*cart.getQuantity());
+		cart.setDays(day);
 		
 	
 		System.out.println("inside insert cartController");
 		cartService.saveOrUpdate(cart);
 	}
+			int Stock = pro.getQuantity() - 1;
+			pro.setQuantity(Stock);
+			productService.updateProduct(pro);
+		}
+		else{
+			model.addAttribute("message", "Out Of Stock");
+		}
+		
+		
+		 
+	}
+
+	
+
+
+
+			
 	
 	@RequestMapping("/viewcart")
 	public ModelAndView getviewcart(Principal principal){
@@ -67,20 +111,42 @@ public class CartController {
 		List<Cart> cartList = cartService.getCartByuserName(principal.getName());
 		mv.addObject("viewcart", true);
 		mv.addObject("cartList", cartList);
+		
 		return mv;
 		
 		
 	}
+	@RequestMapping("delete/{cartId}")
+	public String delete(@PathVariable ("cartId") int cartId){
+		
+		Cart ct = cartService.get(cartId);
+		product pr = productService.getProductById(ct.getProductId());
+		int qty = pr.getQuantity() + ct.getQuantity();
+		
+		pr.setQuantity(qty);
+		productService.saveProduct(pr);
+		
+		cartService.delete(cartId);
+	
+		return "redirect:/viewcart";
+	
+}
+	
 
+/*
+   
 	
 	@RequestMapping(value="/viewcart/{cartId}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void removeItemFromCart(@PathVariable("cartId") int cartId)
 	{
-		cartService.delete(cartId);
+	cartService.delete(cartId);	
 	}
 	
 
+*/
+	
+	
+
+
 }
-
-

@@ -1,5 +1,7 @@
 package com.shoppingCart.dao;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
@@ -42,6 +44,19 @@ public class UsersDaoImpl implements UsersDao {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Users.class);
 		criteria.add(Restrictions.eq("username", username));
 		return (Users) criteria.uniqueResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public boolean UserAlreadyExist(String email, boolean b) {
+		String hql = "from Users where email = '"+email+"'";
+		org.hibernate.Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		// TODO Auto-generated method stub
+		List<Users> list = (List<Users>) query.list();
+		if (list != null && !list.isEmpty()){
+			return true;
+		}
+		return false;
 	}
 
 }

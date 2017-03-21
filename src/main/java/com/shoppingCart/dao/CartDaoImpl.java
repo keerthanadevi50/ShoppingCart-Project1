@@ -66,6 +66,33 @@ public class CartDaoImpl implements CartDao{
 		criteria.add(Restrictions.eq("userName", userName));
 		return  criteria.list();
 	}
+
+	@Transactional
+	public boolean itemAlreadyExist(int userId, int productId, boolean b) {
+		// TODO Auto-generated method stub
+		String hql = "from Cart where userId= '" + userId + "' and " + " productId ='" + productId+"'";
+		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Cart> list = (List<Cart>) query.list();
+		if (list != null && !list.isEmpty()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Transactional
+	public Cart getByUserandProduct(int userId, int productId) {
+		// TODO Auto-generated method stub
+		String hql = "from Cart where userId= '" + userId + "' and " + " productId ='" + productId+"'";
+		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Cart> listCart = (List<Cart>) query.list();
+		
+		if (listCart != null && !listCart.isEmpty()){
+			return listCart.get(0);
+		}
+		return null;
+	}
 	
 	
 	

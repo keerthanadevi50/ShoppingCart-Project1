@@ -109,34 +109,30 @@ font-family: Raleway;
 </head>
 	
 <body>
+<c:if test="${pageContext.request.userPrincipal.name != null }">
+Welcome ${pageContext.request.userPrincipal.name}
+</c:if>
 		<div class="container yellow topBotomBordersOut">
 		<a href="home">Home</a>
 			<a href="aboutUs">AboutUs</a>
-		
 			<c:if test= "${not empty loginUser }">
-			<a href="trackorders.jsp" >Track Orders </a>
+			<a href="trackorders" >Track Orders </a>
 			<a href="productlist">Browse All Books</a>
-			<a href="viewcart">Cart</a>
+			<a href="viewcart">My Cart</a>
 			<a href="newshippingAddress">ShippingAddress</a>
 			<a href="newbillingAddress">BillingAddress</a>
+		
 			</c:if>
-			<c:choose>
-			<c:when test= "${ not empty loginUser }"> 
-            <a href="registerCustomer">Register</a>
-            <a href="j_spring_security_logout">Logout</a>
-			</c:when>
+			<c:if test="${pageContext.request.userPrincipal.name == null }">
+				<a href="registerCustomer">Register</a>
+				<a href="asdfg">Login</a>
+			</c:if>
+			<c:if test="${pageContext.request.userPrincipal.name != null }">
+				<a href="j_spring_security_logout">Logout</a>
+</c:if>
 			
-             <c:when test= "${ not empty loginAdmin }"> 
-            <a href="registerCustomer">Register</a>
-            <a href="j_spring_security_logout">Logout</a>
-             </c:when>
-             <c:otherwise> 
-             <a href="registerCustomer">Register</a>
-			 <a href="asdfg">Login</a>
 			
-			</c:otherwise>
-			</c:choose>
-	
+			
 			
  
  

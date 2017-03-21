@@ -54,7 +54,7 @@ width: 60%;
 <div id="container"><span>&#x20B9;</span>${product.price }</div>
 </td>
 <td>
- <a href="<spring:url value="viewcart/${product.pid}"/>">
+ <a href="<spring:url value="/${product.pid}"/>">
           <span class="glyphicon glyphicon-shopping-cart" ></span>buy now</a>
           </td>
           </tr>

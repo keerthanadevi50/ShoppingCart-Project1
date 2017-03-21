@@ -76,7 +76,7 @@ label.star:before {
 <tr><td class="col-sm-4" style="background-color:lavender;">Publisher	: </td> <td style="background-color:lavenderblush;"> ${product.mfg} </td></tr>
 
 <tr><td class="col-sm-4"></td></tr>
-<tr><td ><button  type="button" class="btn btn-info btn-lg"  ng-click="addtocart('${product.pid}')" <span class="glyphicon glyphicon-shopping-cart">Add to Cart </span></button>
+<tr><td ><button  type="button" class="add-to-cart btn btn-default"  ng-click="addtocart('${product.pid}')" >Add to Cart </button>
 		<button type="button" class= "btn btn-warning" onclick="goBack()">Continue Shopping</button></td></tr>
 </table>
 <div class="stars">

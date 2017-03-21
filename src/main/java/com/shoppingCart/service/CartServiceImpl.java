@@ -52,6 +52,18 @@ public class CartServiceImpl implements CartService{
 			return cartDao.getCartByuserName(userName);
 		}
 
+		@Transactional
+		public boolean itemAlreadyExist(int userId, int productId, boolean b) {
+			// TODO Auto-generated method stub
+			return cartDao.itemAlreadyExist(userId, productId, b);
+		}
+
+		@Transactional
+		public Cart getByUserandProduct(int userId, int productId) {
+			// TODO Auto-generated method stub
+			return cartDao.getByUserandProduct(userId, productId);
+		}
+
 		
 		
 }

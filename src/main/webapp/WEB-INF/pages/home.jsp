@@ -214,7 +214,7 @@ form {
 		</div>
 		</div>
     <div class="col-sm-4"> 
-      <div class="panel panel-warning">
+      <div class="panel panel-primary">
         <div class="panel-heading">24 HOURS DEAL</div>
         <div class="panel-body">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">

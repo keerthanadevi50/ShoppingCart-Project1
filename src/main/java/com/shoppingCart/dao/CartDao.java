@@ -20,6 +20,9 @@ public interface CartDao {
 
 		public List<Cart> getCartByuserName(String userName);
 			
+		public boolean itemAlreadyExist(int userId, int productId, boolean b);
+
+		public Cart getByUserandProduct(int userId, int productId);
 
 
 }

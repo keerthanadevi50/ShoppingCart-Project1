@@ -29,7 +29,7 @@
     <td>${cart.days}</td>
     <td>${cart.status}</td>
     <td>${cart.total}</td>
-    <td><a href="deleteProduct/${cart.cartId}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-trash"></span></a></td>
+    <td><a href="delete/${cart.cartId}"><span class="glyphicon glyphicon-trash"></span></a></td>
     </tr>
      </c:forEach>
     </table>

@@ -57,7 +57,14 @@ public class CustomerController {
 	}
 
 	@RequestMapping("/newUsers")
-	public String newUsers(@ModelAttribute Users users, @ModelAttribute ShippingAddress shippingAddress, @ModelAttribute BillingAddress billingAddress) {
+	public String newUsers(@ModelAttribute Users users, @ModelAttribute ShippingAddress shippingAddress, @ModelAttribute BillingAddress billingAddress,Model model) {
+		String email=users.getEmail();
+		if(usersService.UserAlreadyExist(email, true)){
+			model.addAttribute("message", "The entered Email is already registered");
+		}
+		else {
+			
+		
 		users.setEnabled(true);
 		
 		authorities.setRole("ROLE_USER");
@@ -81,7 +88,7 @@ public class CustomerController {
 		 shippingAddressService.saveOrUpdate(shippingAddress);
 		billingAddressService.saveOrUpdate(billingAddress);
 		
-		
+		}
 		return "login";
 	}
 

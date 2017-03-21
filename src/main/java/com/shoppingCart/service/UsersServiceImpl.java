@@ -28,4 +28,9 @@ private UsersDao usersDao;
 		// TODO Auto-generated method stub
 		return usersDao.getUsersById(username);
 	}
+	@Transactional
+	public boolean UserAlreadyExist(String email, boolean b) {
+		// TODO Auto-generated method stub
+		return usersDao.UserAlreadyExist(email, b);
+	}
 }
