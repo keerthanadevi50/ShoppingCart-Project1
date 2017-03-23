@@ -57,61 +57,48 @@ public class CustomerController {
 	}
 
 	@RequestMapping("/newUsers")
-	public String newUsers(@ModelAttribute Users users, @ModelAttribute ShippingAddress shippingAddress, @ModelAttribute BillingAddress billingAddress,Model model) {
-		String email=users.getEmail();
-		if(usersService.UserAlreadyExist(email, true)){
-			model.addAttribute("message", "The entered Email is already registered");
-		}
-		else {
-			
-		
+	public String newUsers(@ModelAttribute ShippingAddress shippingAddress,
+			@ModelAttribute BillingAddress billingAddress, @ModelAttribute Users users, Model model) {
+
 		users.setEnabled(true);
-		
+
 		authorities.setRole("ROLE_USER");
 		authorities.setUsername(users.getUsername());
-		
-		
-		
-		
+
 		users.setAuthorities(authorities);
 		authorities.setUsers(users);
-		
-		
-		
-		
+
 		usersService.saveUsers(users);
 		authoritiesService.saveOrUpdate(authorities);
-		
+
 		shippingAddress.setId(users.getId());
 		billingAddress.setId(users.getId());
-		
-		 shippingAddressService.saveOrUpdate(shippingAddress);
+
+		shippingAddressService.saveOrUpdate(shippingAddress);
 		billingAddressService.saveOrUpdate(billingAddress);
-		
-		}
+		model.addAttribute("message", "You Are Successfully registered");
+
 		return "login";
 	}
 
 	@RequestMapping(value = "/afterlogin")
-	public String afterLogin( Principal p,Model model, @RequestParam(value = "error" , required=false) String error, @RequestParam(value = "logout", required=false)String logout) {
+	public String afterLogin(Principal p, Model model, @RequestParam(value = "error", required = false) String error,
+			@RequestParam(value = "logout", required = false) String logout) {
 		String username = p.getName();
-		Authorities authorities=authoritiesService.get(username);
-		String role =authorities.getRole();
-		
-		if(role.equals("ROLE_USER")){
-			model.addAttribute("loginUser",true);
+		Authorities authorities = authoritiesService.get(username);
+		String role = authorities.getRole();
+
+		if (role.equals("ROLE_USER")) {
+			model.addAttribute("loginUser", true);
 			List<product> productList = productService.getAllProducts();
 			model.addAttribute("productList", productList);
 			return "UserLogin";
-		}
-		else if(role.equals("ROLE_ADMIN"))
-		{
+		} else if (role.equals("ROLE_ADMIN")) {
 			model.addAttribute("loginAdmin", true);
 			return "AdminLogin";
+		} else {
+			return "login";
+
 		}
-		else
-		{
-		return "login";	  
-	 
 	}
-}}
+}

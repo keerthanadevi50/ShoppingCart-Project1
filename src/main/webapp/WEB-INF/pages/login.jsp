@@ -35,7 +35,7 @@
       
       <input type="password" class="form-control" id="password" name="password"  placeholder="password">
     </div>
-    <br>
+    <br><h2>${message}</h2>
     <div align="center">
     <input type="submit" class="btn btn-danger" value="submit">
     </div>

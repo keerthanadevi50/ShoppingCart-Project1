@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 	@Parameter(value = "users", name = "property") })
 	private int id;
 	
-		@Column(unique=true)
+		
 	private String username;
 	private String role;
 	

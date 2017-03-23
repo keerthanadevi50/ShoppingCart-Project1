@@ -23,7 +23,8 @@ public class UsersDaoImpl implements UsersDao {
 	@Transactional
 	public Users saveUsers(Users users) {
 		Session session = sessionFactory.openSession();
-		session.save(users); // insert into product values (next.val,.....)
+		session.saveOrUpdate(users);
+		// insert into product values (next.val,.....)
 		session.flush();
 		session.close();
 		// TODO Auto-generated method stub
@@ -49,12 +50,12 @@ public class UsersDaoImpl implements UsersDao {
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public boolean UserAlreadyExist(String email, boolean b) {
-		String hql = "from Users where email = '"+email+"'";
+		String hql = "from Users where email = '"+ email +"'";
 		org.hibernate.Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		// TODO Auto-generated method stub
 		List<Users> list = (List<Users>) query.list();
 		if (list != null && !list.isEmpty()){
-			return true;
+			return true; 
 		}
 		return false;
 	}

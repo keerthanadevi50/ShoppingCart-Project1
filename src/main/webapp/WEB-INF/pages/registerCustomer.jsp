@@ -20,62 +20,63 @@ color:lime;
 <body>
 <div class="container-wrapper">
 <div class="container">
-<form action="newUsers" class="form-horizontal"  method="post"   role="form" name="register" class="form-horizontal">
+<form action="newUsers" class="form-horizontal"  method="post"   role="form" >
     <div class="span9 margin-top">
                    <div class="span9 center margin-bottom"> 
 					<h1>Registration Form</h1>
 					</div>
+					</div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="first name">First Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="name" placeholder="First Name">
+        <input type="text" class="form-control" id="name" name="firstname" placeholder="First Name">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-2" for="last name">Last Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="name" placeholder="last Name">
+        <input type="text" class="form-control" id="name" name="lastname" placeholder="last Name">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-2" for="username">User Name</label>
       <div class="col-sm-10">
-        <input type="username" class="form-control" id="username" placeholder="Enter username">
+        <input type="username" class="form-control" id="username" name="username" placeholder="Enter username">
       </div>
     </div>
 <div class="form-group">
       <label class="control-label col-sm-2" for="email">Email:</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="email" placeholder="Enter email">
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-2" for="phonenumber">Phone Number</label>
       <div class="col-sm-10">
-        <input type="phonenumber" class="form-control" id="phonenumber" placeholder="Enter phonenumber">
+        <input type="phonenumber" class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter phonenumber">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-2" for="password">Password:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="password" placeholder="Enter password">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
       </div>
       </div>
       <div class="form-group">
-      <label class="control-label col-sm-2" for="apartmentnumber">Apartment Number</label>
+      <label class="control-label col-sm-2" for="apartmentNumber">Apartment Number</label>
       <div class="col-sm-10">
-        <input type="apartmentnumber" class="form-control" id="apartmentnumber" placeholder="Enter apartmentnumber">
+        <input type="apartmentnumber" class="form-control" id="apartmentnumber" name="apartmentNumber" placeholder="Enter apartmentnumber">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-2" for="streetName">Street Name</label>
       <div class="col-sm-10">
-        <input type="streetName" class="form-control" id="streetname" placeholder="Enter streetname">
+        <input type="streetName" class="form-control" id="streetName" name="streetName" placeholder="Enter streetname">
       </div>
     </div>
 
@@ -83,35 +84,35 @@ color:lime;
 <div class="form-group">
       <label class="control-label col-sm-2" for="city">City</label>
       <div class="col-sm-10">
-        <input type="city" class="form-control" id="city" placeholder="Enter city">
+        <input type="city" class="form-control" id="city" name="city" placeholder="Enter city">
       </div>
     </div>
 
 
 <div class="form-group">
-      <label class="control-label col-sm-2" for="city">State</label>
+      <label class="control-label col-sm-2" for="State">State</label>
       <div class="col-sm-10">
-        <input type="state" class="form-control" id="state" placeholder="Enter state">
+        <input type="state" class="form-control" id="state"name="State" placeholder="Enter state">
       </div>
     </div>
 
 
 <div class="form-group">
-      <label class="control-label col-sm-2" for="city">Country</label>
+      <label class="control-label col-sm-2" for="country">Country</label>
       <div class="col-sm-10">
-        <input type="country" class="form-control" id="country" placeholder="Enter country">
+        <input type="country" class="form-control" id="country" name="country" placeholder="Enter country">
       </div>
     </div>
 
 <div class="form-group">
-      <label class="control-label col-sm-2" for="city">ZipCode</label>
+      <label class="control-label col-sm-2" for="zipcode">ZipCode</label>
       <div class="col-sm-10">
-        <input type="zipcode" class="form-control" id="zipcode" placeholder="Enter zipcode">
+        <input type="zipcode" class="form-control" id="zipcode" name="zipcode" placeholder="Enter zipcode">
       </div>
     </div>
     <br>
     <div align="center">
-<input class="btn btn-success" type="submit" value="register">
+<input type="submit" name="submit" class="btn btn-success"  value="register">
 </div>
 
 </form>
