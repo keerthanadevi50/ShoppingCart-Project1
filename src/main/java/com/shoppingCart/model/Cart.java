@@ -1,10 +1,14 @@
 package com.shoppingCart.model;
 
+import java.util.Date;
+
+import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 import org.springframework.stereotype.Component;
 
@@ -27,6 +31,10 @@ import org.springframework.stereotype.Component;
 		private String status;
 		private int days;
 	
+		@Generated(value = { "" })
+		@Temporal(javax.persistence.TemporalType.DATE)
+		private Date addDate = new java.sql.Date(new java.util.Date().getTime());
+		
 	
 	public int getUserId() {
 		return userId;

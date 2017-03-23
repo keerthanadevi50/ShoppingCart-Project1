@@ -17,7 +17,8 @@ public interface CartDao {
 		
 		public void delete(int cartId);
 
-
+		public Long getTotalAmount(int id);
+		
 		public List<Cart> getCartByuserName(String userName);
 			
 		public boolean itemAlreadyExist(int userId, int productId, boolean b);

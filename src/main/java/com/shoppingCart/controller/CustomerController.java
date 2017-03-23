@@ -77,7 +77,6 @@ public class CustomerController {
 		shippingAddressService.saveOrUpdate(shippingAddress);
 		billingAddressService.saveOrUpdate(billingAddress);
 		model.addAttribute("message", "You Are Successfully registered");
-
 		return "login";
 	}
 

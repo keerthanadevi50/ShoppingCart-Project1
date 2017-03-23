@@ -87,6 +87,9 @@ public class CartController {
 		System.out.println("inside insert cartController");
 		cartService.saveOrUpdate(cart);
 	}
+			
+			
+			
 			int Stock = pro.getQuantity() - 1;
 			pro.setQuantity(Stock);
 			productService.updateProduct(pro);
@@ -109,6 +112,10 @@ public class CartController {
 	public ModelAndView getviewcart(Principal principal){
 		ModelAndView mv = new ModelAndView("UserLogin");
 		List<Cart> cartList = cartService.getCartByuserName(principal.getName());
+	users = userService.getUsersById(principal.getName());
+	Long GrandTotal = cartService.getTotalAmount(users.getId());
+	
+	mv.addObject("GrandTotal", GrandTotal);
 		mv.addObject("viewcart", true);
 		mv.addObject("cartList", cartList);
 		

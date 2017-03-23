@@ -31,7 +31,13 @@
     <td>${cart.total}</td>
     <td><a href="delete/${cart.cartId}"><span class="glyphicon glyphicon-trash"></span></a></td>
     </tr>
+   
      </c:forEach>
+      <tr>
+    <td colspan="5" align="right">Grand Total :</td><td>${GrandTotal}</td>
+    
+    
+    </tr>
     </table>
     </div>
     </body>

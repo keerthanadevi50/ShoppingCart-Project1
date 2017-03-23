@@ -16,6 +16,8 @@ public interface CartService {
 		
 		public void saveOrUpdate(Cart cart);
 		
+		public Long getTotalAmount(int id);
+		
 		public void delete(int cartId);
 		
 		public boolean itemAlreadyExist(int userId, int productId, boolean b);

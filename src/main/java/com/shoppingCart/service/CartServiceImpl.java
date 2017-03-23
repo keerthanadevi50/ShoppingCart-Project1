@@ -64,6 +64,12 @@ public class CartServiceImpl implements CartService{
 			return cartDao.getByUserandProduct(userId, productId);
 		}
 
+		@Transactional
+		public Long getTotalAmount(int id) {
+			// TODO Auto-generated method stub
+			return cartDao.getTotalAmount(id);
+		}
+
 		
 		
 }

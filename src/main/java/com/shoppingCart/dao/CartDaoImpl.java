@@ -3,6 +3,7 @@ package com.shoppingCart.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.shoppingCart.model.Cart;
-import com.shoppingCart.model.Users;
 @Repository
 public class CartDaoImpl implements CartDao{
 	
@@ -43,7 +43,7 @@ public class CartDaoImpl implements CartDao{
 	@Transactional
 	public void saveOrUpdate(Cart cart) {
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(cart);
+		session.save(cart);
 		
 	}
 
@@ -93,7 +93,15 @@ public class CartDaoImpl implements CartDao{
 		}
 		return null;
 	}
-	
+
+	@Transactional
+	public Long getTotalAmount(int id) {
+	String hql = "select sum(total) from Cart where userId = " + "'" + id + "'" + "and status = '" + "Pending" +"'";
+	Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	Long sum = (Long) query.uniqueResult();
+		return sum;
+	}
+
 	
 	
 }
