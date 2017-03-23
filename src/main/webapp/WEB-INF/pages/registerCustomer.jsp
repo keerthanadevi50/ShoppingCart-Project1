@@ -12,7 +12,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+<style>
+.h1{
+color:lime;
+}
+</style></head>
 <body>
 <div class="container-wrapper">
 <div class="container">
@@ -105,7 +109,10 @@
         <input type="zipcode" class="form-control" id="zipcode" placeholder="Enter zipcode">
       </div>
     </div>
-<input type="submit" value="register">
+    <br>
+    <div align="center">
+<input class="btn btn-success" type="submit" value="register">
+</div>
 
 </form>
 

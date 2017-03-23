@@ -115,9 +115,8 @@ Welcome ${pageContext.request.userPrincipal.name}
 		<div class="container yellow topBotomBordersOut">
 		<a href="home">Home</a>
 			<a href="aboutUs">AboutUs</a>
+			<a href="fridaylist">Browse All Books</a>
 			<c:if test= "${not empty loginUser }">
-			<a href="trackorders" >Track Orders </a>
-			<a href="productlist">Browse All Books</a>
 			<a href="viewcart">My Cart</a>
 			<a href="newshippingAddress">ShippingAddress</a>
 			<a href="newbillingAddress">BillingAddress</a>

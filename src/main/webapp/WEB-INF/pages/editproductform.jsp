@@ -59,10 +59,7 @@ button {
 					<label for="text">Quantity</label> 
 					<input class="form-control" placeholder="product" type="text"  id="name" name="quantity" value="${product.quantity}" >
 				</div>
-				<div style="color: #27A4F7" class="form-group">
-					<label for="text">Stock</label> 
-					<input class="form-control" placeholder="product" type="text"  id="name" name="stock" value="${product.stock}" >
-				</div>
+				
 				<div style="color: #27A4F7" class="form-group">
 					<label for="text">Year of Published</label> 
 					<input class="form-control" placeholder="product" type="text"  id="published" name="published" value="${product.published}" >

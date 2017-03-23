@@ -23,12 +23,7 @@ import javax.persistence.Table;
 		private String author;
 		private String published;
 		private String mfg;
-		
-		private int stock;
-		
 		private int price;
-		
-		
 		private int quantity;
 
 		public int getPid() {
@@ -103,13 +98,7 @@ import javax.persistence.Table;
 			this.published = published;
 		}
 
-		public int getStock() {
-			return stock;
-		}
-
-		public void setStock(int stock) {
-			this.stock = stock;
-		}
+		
 		
 		
 	

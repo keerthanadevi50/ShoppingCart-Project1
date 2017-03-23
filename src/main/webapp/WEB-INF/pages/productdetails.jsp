@@ -59,6 +59,12 @@ label.star:before {
 </style>
 </head>
 <body ng-app="addToCartApp" ng-controller="addToCartCtrl">
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
 <h2 align="center" style="margin-top: 1em; margin-bottom: 0.5em;">${product.name}</h2>
 <div class="container" style="margin: 0px 30px 0px 80px">
 <br>
@@ -70,13 +76,13 @@ label.star:before {
 <tr><td class="col-sm-4">out of stock	: </td> <td  class="col-sm-4">  zero stock left</td></tr>
 <tr><td class="col-sm-4" >Product Description	: </td> <td class="col-sm-4"> ${product.description}</td></tr>
 <tr><td class="col-sm-4" style="background-color:lavender;">Product Price	: </td> <td class="col-sm-4" style="background-color:lavenderblush;"><span>&#x20B9;</span> ${product.price}</td></tr>
-<tr><td class="col-sm-4" >Product Available	: </td> <td class="col-sm-4" >${product.stock}</td></tr>
+<tr><td class="col-sm-4" >Product Available	: </td> <td class="col-sm-4" >${product.quantity}</td></tr>
 <tr><td class="col-sm-4" style="background-color:lavender;">Author	: </td> <td class="col-sm-4" style="background-color:lavenderblush;">${product.author}</td></tr>
 <tr><td class="col-sm-4">Published Year	: </td> <td  class="col-sm-4" >  ${product.published}</td></tr>
 <tr><td class="col-sm-4" style="background-color:lavender;">Publisher	: </td> <td style="background-color:lavenderblush;"> ${product.mfg} </td></tr>
 
 <tr><td class="col-sm-4"></td></tr>
-<tr><td ><button  type="button" class="add-to-cart btn btn-default"  ng-click="addtocart('${product.pid}')" >Add to Cart </button>
+<tr><td ><button  type="button" class="add-to-cart btn btn-success"  ng-click="addtocart('${product.pid}')" >Add to Cart </button>
 		<button type="button" class= "btn btn-warning" onclick="goBack()">Continue Shopping</button></td></tr>
 </table>
 <div class="stars">

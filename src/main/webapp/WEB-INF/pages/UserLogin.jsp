@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2 align="middle" color:"gray">Welcome ${pageContext.request.userPrincipal.name}!!</h2>
 	<c:choose>
 	<c:when test="${not empty productDetails}">
 	<%@ include file="productdetails.jsp"%>

@@ -21,19 +21,24 @@
 		<c:if test="${not empty logout}">
 			<center><h3><div style="color : green" class="msg">${logout}</div></h3></center>
 </c:if> 
-	<h2>ENTER USERNAME AND PASSWORD</h2>
+	<h3>You Must Fill Your Details</h3>
 	<br>
 	
-	<form action="loginpage" method="post">
-    <div class="form-group">
-      <label for="username">Enter Your User Name</label>
+	<form action="loginpage" method="post"  align="center">
+    <div class="input-group">
+     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      
       <input type="text" class="form-control" id="username" name="username"  placeholder="username">
     </div>
-    <div class="form-group">
-      <label for="password">Enter Your Password:</label>
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      
       <input type="password" class="form-control" id="password" name="password"  placeholder="password">
     </div>
-    <input type="submit" class="btn btn-default" value="submit">
+    <br>
+    <div align="center">
+    <input type="submit" class="btn btn-danger" value="submit">
+    </div>
   </form>
  </div>
 	<%@ include file="footer.jsp" %>
