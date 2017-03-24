@@ -35,22 +35,22 @@
      </c:forEach>
       <tr>
     <td colspan="5" align="right">Grand Total :</td><td>${GrandTotal}</td>
-    
-    
     </tr>
-    
-     <button type="button" class="btn btn-success">
+    </table>
+    <div align="right">
+    <button type="button"  class="btn btn-success" >
                             Continue Shopping<span class="glyphicon glyphicon-play"></span>
                         </button>
                       
-                         <a href="order/${pageContext.request.userPrincipal.name}"><button type="button" class="btn btn-success">
+                         <a href="order/${pageContext.request.userPrincipal.name}">
+                         <button type="button" class="btn btn-success">
                             BuyNow <span class="glyphicon glyphicon-briefcase"></span>
                         </button></a>
                       
                          <button type="button" class="btn btn-danger">
                             Cancel <span class="glyphicon glyphicon-remove"></span>
                         </button>
-    </table>
+                        </div>
     </div>
     </body>
     </html>

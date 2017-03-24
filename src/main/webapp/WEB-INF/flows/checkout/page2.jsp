@@ -14,7 +14,7 @@
 	
 <style>
 body {
-    background-color: steelblue;
+    background-color: lightblue;
 }
 
 </style>
@@ -23,13 +23,13 @@ body {
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-primary">
+            <div class="panel panel-success">
                 <div class="panel-heading">Payment</div>
                 <div class="panel-body">
 
-<form action="billingAddress" class="form-horizontal"  method="post"   name="form" name="register" >
+<form action="" class="form-horizontal"  method="post"   name="form" name="register" >
 
-<div class="form-group">
+<div class="form-group" >
 <label for="firstname">FIRST NAME</label>
 <input name="firstname" id="firstname" type="text" class="form-control" placeholder="firstname">
 </div>

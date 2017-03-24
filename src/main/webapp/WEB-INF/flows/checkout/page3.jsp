@@ -13,7 +13,7 @@
 <%@ include file="/WEB-INF/pages/header.jsp" %>
  <center><h1>Thank You!!! Your purchase is being dispatched</h1>
    <div class="item">
-   <img src="<c:url value="resources/image/freight.jpg"/>" height=400px width=600px/></div>
+   <img src="<c:url value="resources/img/namaste.jpg"/>" height=400px width=400px/></div>
     </div>
     </center>
 </body>

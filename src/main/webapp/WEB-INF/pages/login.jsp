@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2>${message}</h2>
 <div class="container">
 <c:if test="${not empty error}">
 			<center><h1><div style="color : red" class="error">${error}</div></h1></center>
@@ -35,7 +36,7 @@
       
       <input type="password" class="form-control" id="password" name="password"  placeholder="password">
     </div>
-    <br><h2>${message}</h2>
+    <br>
     <div align="center">
     <input type="submit" class="btn btn-danger" value="submit">
     </div>

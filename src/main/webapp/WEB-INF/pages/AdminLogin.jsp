@@ -80,6 +80,9 @@
     <a href="viewsupplier">view</a>
   </div>
 </div>
+ <button type="button" class="btn btn-default">
+  <a href="userKart">UsersKart</a></button>
+  
   
 <br>
 
@@ -121,6 +124,9 @@
 		<%@include file="/WEB-INF/pages/editsupplierform.jsp"%>
 	</c:when>
 	
+	<c:when test="${not empty purchaseDetails}">
+		<%@include file="/WEB-INF/pages/userKart.jsp"%>
+	</c:when>
 	
 	<c:otherwise>
 			<h1 style="margin-left: 35%;">Welcome Admin !!</h1>

@@ -144,8 +144,19 @@ public class CartController {
 		return "redirect:/checkout?username"+username;
 		
 	}
+	
+	
+	@RequestMapping("/userKart")
+	public String purchaseDetails(Model model){
+		List<Cart> cartList = cartService.list();
+		model.addAttribute("cartList", cartList);
+		model.addAttribute("purchaseDetails", true);
+		return "AdminLogin";
+		
+	}
 
 /*
+ 
    
 	
 	@RequestMapping(value="/viewcart/{cartId}")
