@@ -138,7 +138,12 @@ public class CartController {
 		return "redirect:/viewcart";
 	
 }
+	@RequestMapping("/order/{username}")
+	public String placeorder(@PathVariable("username") String username){
 	
+		return "redirect:/checkout?username"+username;
+		
+	}
 
 /*
    

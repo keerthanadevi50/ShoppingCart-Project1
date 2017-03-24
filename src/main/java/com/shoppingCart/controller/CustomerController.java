@@ -59,7 +59,7 @@ public class CustomerController {
 	@RequestMapping("/newUsers")
 	public String newUsers(@ModelAttribute ShippingAddress shippingAddress,
 			@ModelAttribute BillingAddress billingAddress, @ModelAttribute Users users, Model model) {
-
+		model.addAttribute("message", "You Are Successfully registered");
 		users.setEnabled(true);
 
 		authorities.setRole("ROLE_USER");
@@ -76,7 +76,7 @@ public class CustomerController {
 
 		shippingAddressService.saveOrUpdate(shippingAddress);
 		billingAddressService.saveOrUpdate(billingAddress);
-		model.addAttribute("message", "You Are Successfully registered");
+		
 		return "login";
 	}
 
