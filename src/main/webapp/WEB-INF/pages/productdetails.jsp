@@ -73,31 +73,19 @@ function goBack() {
 
  <table> 
 <tr><td class="col-sm-4" style="background-color:lavender;">Product Name	: </td> <td class="col-sm-4" style="background-color:lavenderblush;"> ${product.name} </td></tr>
-<tr><td class="col-sm-4">out of stock	: </td> <td  class="col-sm-4">  zero stock left</td></tr>
+
 <tr><td class="col-sm-4" >Product Description	: </td> <td class="col-sm-4"> ${product.description}</td></tr>
 <tr><td class="col-sm-4" style="background-color:lavender;">Product Price	: </td> <td class="col-sm-4" style="background-color:lavenderblush;"><span>&#x20B9;</span> ${product.price}</td></tr>
-<tr><td class="col-sm-4" >Product Available	: </td> <td class="col-sm-4" >${product.quantity}</td></tr>
+<tr><td class="col-sm-4" >Product Available	: </td> <td class="col-sm-4" >${product.quantity}</td><td>${message}</td></tr>
 <tr><td class="col-sm-4" style="background-color:lavender;">Author	: </td> <td class="col-sm-4" style="background-color:lavenderblush;">${product.author}</td></tr>
 <tr><td class="col-sm-4">Published Year	: </td> <td  class="col-sm-4" >  ${product.published}</td></tr>
 <tr><td class="col-sm-4" style="background-color:lavender;">Publisher	: </td> <td style="background-color:lavenderblush;"> ${product.mfg} </td></tr>
 
 <tr><td class="col-sm-4"></td></tr>
-<tr><td ><button  type="button" class="add-to-cart btn btn-success"  ng-click="addtocart('${product.pid}')" >Add to Cart </button>
-		<button type="button" class= "btn btn-warning" onclick="goBack()">Continue Shopping</button></td></tr>
+<c:if test="${pageContext.request.userPrincipal.name != 'admin'} "><tr><td ><button  type="button" class="add-to-cart btn btn-success"  ng-click="addtocart('${product.pid}')" >Add to Cart </button>
+		<button type="button" class= "btn btn-warning" onclick="goBack()">Continue Shopping</button></td></tr></c:if>
 </table>
-<div class="stars">
 
-    <input class="star star-5" id="star-5" type="radio" name="star"/>
-    <label class="star star-5" for="star-5"></label>
-    <input class="star star-4" id="star-4" type="radio" name="star"/>
-    <label class="star star-4" for="star-4"></label>
-    <input class="star star-3" id="star-3" type="radio" name="star"/>
-    <label class="star star-3" for="star-3"></label>
-    <input class="star star-2" id="star-2" type="radio" name="star"/>
-    <label class="star star-2" for="star-2"></label>
-    <input class="star star-1" id="star-1" type="radio" name="star"/>
-    <label class="star star-1" for="star-1"></label>
-    </div>
   </form>
 </div>
 

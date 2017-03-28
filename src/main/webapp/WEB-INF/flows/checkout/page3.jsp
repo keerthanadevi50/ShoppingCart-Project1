@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/pages/header.jsp" %>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -10,10 +11,11 @@
 
 <body>
  <div class="container">
-<%@ include file="/WEB-INF/pages/header.jsp" %>
+
  <center><h1>Thank You!!! Your purchase is being dispatched</h1>
    <div class="item">
    <img src="<c:url value="resources/img/namaste.jpg"/>" height=400px width=400px/></div>
+   <%@ include file="/WEB-INF/pages/footer.jsp" %>
     </div>
     </center>
 </body>

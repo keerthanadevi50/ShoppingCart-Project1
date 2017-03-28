@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/pages/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -19,7 +20,7 @@ body {
 
 </style>
 </head>
-<%@ include file="/WEB-INF/pages/header.jsp" %>
+
 <body>
 <div class="container">
     <div class="row">
@@ -51,6 +52,7 @@ body {
                         <label for="zipcode" class="m-t-10">Zipcode</label>
                         <input type="text" id="zipcode" class="form-control" name="zipcode" placeholder="">
                         
+                        <button class= "btn btn-warning"> <a href="viewcart" >Back</a></button>
                         <center><input type="submit" class="btn btn-primary m-t-10"  name="_eventId_pay" value="Next"></a></center>
                         
                     </form>
@@ -58,7 +60,9 @@ body {
             </div>
         </div>
     </div>
+    <%@ include file="/WEB-INF/pages/footer.jsp" %>
 </div>
 
 </body>
+ 
 </html>  

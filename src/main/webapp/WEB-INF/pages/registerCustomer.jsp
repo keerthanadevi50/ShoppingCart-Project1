@@ -49,27 +49,39 @@
 										"PhoneNumber Should not be empty")) {
 									if (isNumeric(phone,
 											"Please enter only number for PhoneNumber")) {
-										if (notEmpty(email,
-												"EmailId Should not be empty")) {
-											if (emailValidator(email,
-													"Enter a valid Email id")) {
+										if (phoneNumber(phone,
+												"Please enter only 10 number for PhoneNumber")) {
 
-												if (notEmpty(apartmentnumber,
-														"Address Should not be empty")) {
-													if (notEmpty(streetName,
-															"streetname Should not be empty")) {
-														if (notEmpty(city,
-																"city Should not be empty")) {
-															if (notEmpty(state,
-																	"state Should not be empty")) {
+											if (notEmpty(email,
+													"EmailId Should not be empty")) {
+												if (emailValidator(email,
+														"Enter a valid Email id")) {
+
+													if (notEmpty(
+															apartmentnumber,
+															"Address Should not be empty")) {
+														if (notEmpty(
+																streetName,
+																"streetname Should not be empty")) {
+															if (notEmpty(city,
+																	"city Should not be empty")) {
 																if (notEmpty(
-																		country,
-																		"country Should not be empty")) {
+																		state,
+																		"state Should not be empty")) {
+																	if (notEmpty(
+																			country,
+																			"country Should not be empty")) {
 
-																	if (isNumeric(
-																			zipcode,
-																			"Please enter a valid zip code")) {
-																		return true;
+																		if (isNumeric(
+																				zipcode,
+																				"Please enter a valid zip code")) {
+																			if (zipCode(
+																					zipcode,
+																					"Please enter a 6 digit zip code")) {
+
+																				return true;
+																			}
+																		}
 																	}
 																}
 															}
@@ -88,6 +100,23 @@
 		}
 		return false;
 	}
+	function phoneNumber(elem, helperMsg) {
+		if (elem.value.length != 10) {
+			alert(helperMsg);
+			elem.focus(); // set the focus to this input
+			return false;
+		}
+		return true;
+	}
+	
+	function zipCode(elem, helperMsg) {
+		if (elem.value.length != 6) {
+			alert(helperMsg);
+			elem.focus(); // set the focus to this input
+			return false;
+		}
+		return true;
+	}
 
 	function notEmpty(elem, helperMsg) {
 		if (elem.value.length == 0) {
@@ -101,6 +130,7 @@
 		var numericExpression = /^[0-9]+$/;
 		if (elem.value.match(numericExpression)) {
 			return true;
+			c
 		} else {
 			alert(helperMsg);
 			elem.focus();
@@ -128,7 +158,7 @@
 		}
 	}
 	function emailValidator(elem, helperMsg) {
-		var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+		var emailExp = /^[\w\-\.\+]+\@[a-zA-Z\.\-]+\.[a-zA-z]{2,4}$/;
 		if (elem.value.match(emailExp)) {
 			return true;
 		} else {
@@ -145,8 +175,8 @@
 <body>
 	<div class="container-wrapper">
 		<div class="container">
-			<form action="newUsers" onsubmit="return formRegister()" class="form-horizontal" method="post"
-				role="form">
+			<form action="newUsers" onsubmit="return formRegister()"
+				class="form-horizontal" method="post" role="form">
 				<div class="span9 margin-top">
 					<div class="span9 center margin-bottom">
 						<h1>Registration Form</h1>

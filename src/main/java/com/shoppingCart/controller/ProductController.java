@@ -64,8 +64,8 @@ public class ProductController {
 		return "AdminLogin";
 	
 	}
-	@RequestMapping("productdetails/{pid}")
-	public String productdetails(@PathVariable ("pid") int pid, Model model)
+	@RequestMapping("productdetails")
+	public String productdetails(@RequestParam("id") int pid, Model model)
 	{
 		product pro = productService.getProductById(pid);
 		

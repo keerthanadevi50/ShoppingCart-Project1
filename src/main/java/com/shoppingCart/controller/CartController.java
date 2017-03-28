@@ -63,7 +63,8 @@ public class CartController {
 			Random t = new Random();
 			int day = 2 + t.nextInt(7);
 			
-			if(cartService.itemAlreadyExist(userId, pid, true)){
+			if(cartService.itemAlreadyExist(userId, pid, true))
+			{
 				
 				int qty = crt.getQuantity() + 1;
 				crt.setQuantity(qty);
@@ -94,8 +95,11 @@ public class CartController {
 			pro.setQuantity(Stock);
 			productService.updateProduct(pro);
 		}
-		else{
-			model.addAttribute("message", "Out Of Stock");
+		else
+		{
+			
+			model.addAttribute("message","out of stock");
+			
 		}
 		
 		

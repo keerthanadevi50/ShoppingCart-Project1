@@ -60,6 +60,13 @@ public class CustomerController {
 	public String newUsers(@ModelAttribute ShippingAddress shippingAddress,
 			@ModelAttribute BillingAddress billingAddress, @ModelAttribute Users users, Model model) {
 		model.addAttribute("message", "You Are Successfully registered");
+		String email=users.getEmail();
+		if(usersService.UserAlreadyExist(email, true)){
+			model.addAttribute("message", "Email is Already Registered");
+			
+		}
+		else{
+	
 		users.setEnabled(true);
 
 		authorities.setRole("ROLE_USER");
@@ -76,7 +83,7 @@ public class CustomerController {
 
 		shippingAddressService.saveOrUpdate(shippingAddress);
 		billingAddressService.saveOrUpdate(billingAddress);
-		
+		}
 		return "login";
 	}
 

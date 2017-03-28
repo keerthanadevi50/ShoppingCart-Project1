@@ -62,10 +62,10 @@ width: 95%;
 
 <div class="w3-card-2" align="center">	
 
-<a href="<spring:url value="productdetails/${product.pid}"/>">
+<a href="<spring:url value="productdetails?id=${product.pid}"/>">
     <img class="group list-group-image" src="<c:url value="resources/productimages/ProductId${product.pid}"/>" alt="${product.pid}" width="300" height="300">
   </a>
- <div class="w3-container" align="left"><a href="<spring:url value="/${product.pid}"/>">
+ <div class="w3-container" align="left"><a href="<spring:url value="productdetails?id=${product.pid}"/>">
           <span class="glyphicon glyphicon-shopping-cart" style="font-size:25px;color:Black"></span>Buy Now</a></div>
 <div class="w3-container" align="right"><i class="fa fa-inr" style="font-size:24px"></i>${product.price }</div>
  </div>         
